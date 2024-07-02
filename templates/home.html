@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome to the Babysitter Hiring App</h1>
+    <h2>Available Jobs</h2>
+    {% for job in jobs %}
+        <div>
+            <h3><a href="{{ url_for('job_detail', job_id=job.id) }}">{{ job.title }}</a></h3>
+            <p>{{ job.description[:100] }}...</p>
+        </div>
+    {% endfor %}
+{% endblock %}
